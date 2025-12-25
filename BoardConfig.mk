@@ -1,0 +1,265 @@
+# Copyright (C) 2025 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+DEVICE_PATH := device/samsung/m01q
+BUILD_TOP := $(shell pwd)
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := cortex-a53
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := cortex-a53
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
+
+# Platform
+BOARD_VENDOR := samsung
+TARGET_BOARD_PLATFORM := msm8937
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
+
+# Board
+TARGET_BOOTLOADER_BOARD_NAME := QC_Reference_Phone
+TARGET_NO_BOOTLOADER := true
+
+TARGET_BOARD_SUFFIX := _64
+TARGET_USES_64_BIT_BINDER := true
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
+# Build flags
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
+
+# Kernel
+TARGET_KERNEL_ARCH := arm64
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x02000000
+BOARD_SECOND_OFFSET := 0x00f00000
+BOARD_TAGS_OFFSET := 0x01e00000
+BOARD_RECOVERY_DTBO_SIZE := 2347796
+BOARD_RECOVERY_DTBO_OFFSET := 21106688
+BOARD_HEADER_SIZE := 1660
+BOARD_DTB_SIZE := 859398
+BOARD_DTB_OFFSET := 0x101f00000
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on androidboot.selinux=permissive
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_BOOT_HEADER_VERSION := 2
+
+BOARD_MKBOOTIMG_ARGS += \
+	--base $(BOARD_KERNEL_BASE) \
+	--pagesize $(BOARD_KERNEL_PAGESIZE) \
+	--ramdisk_offset $(BOARD_RAMDISK_OFFSET) \
+	--tags_offset $(BOARD_TAGS_OFFSET) \
+	--kernel_offset $(BOARD_KERNEL_OFFSET) \
+	--second_offset $(BOARD_SECOND_OFFSET) \
+	--dtb_offset $(BOARD_DTB_OFFSET) \
+	--board $(TARGET_BOARD_PLATFORM) \
+	--header_version $(BOARD_BOOT_HEADER_VERSION) \
+	--dtb $(TARGET_PREBUILT_DTB)
+
+# Kernel config
+TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_CONFIG := m01q_open_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/m01q
+
+# Kernel Toolchain
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
+
+# fix this up by examining /proc/mtd on a running device
+BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1073741824
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608 #27
+BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432 #62
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432 #61
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
+BOARD_VENDORIMAGE_PARTITION_SIZE := 767557632
+BOARD_CACHEIMAGE_PARTITION_SIZE := 317718528 #43 
+BOARD_FLASH_BLOCK_SIZE := 131072
+
+BOARD_ROOT_EXTRA_FOLDERS := efs
+BOARD_ROOT_EXTRA_SYMLINKS := \
+	/vendor/dsp:/dsp \
+	/vendor/firmware_mnt:/firmware \
+	/mnt/vendor/persist:/persist \
+	/mnt/vendor/efs:/efs
+
+# Metadata
+BOARD_USES_METADATA_PARTITION := true
+
+# Dynamic Partition
+BOARD_SUPER_PARTITION_SIZE := 3945791488
+BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 3945791488
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := system vendor odm product
+
+# Use these flags if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
+
+# APEX Image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+USE_XML_AUDIO_POLICY_CONF := 1
+USE_CUSTOM_AUDIO_POLICY := 1
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH_QCOM := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_USES_QTI_CAMERA_DEVICE := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+
+# CNE
+BOARD_USES_QCNE := true
+
+# NFC
+#NXP_CHIP_TYPE := pn553
+
+# Graphics
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+TARGET_USES_ION := true
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
+# FM
+BOARD_HAVE_QCOM_FM := true
+TARGET_QCOM_NO_FM_FIRMWARE := true
+
+# HIDL
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_msm8937
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8937
+
+# Keymaster
+TARGET_PROVIDES_KEYMASTER := true
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
+# Media
+TARGET_USES_MEDIA_EXTENSIONS := true
+
+# Peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
+# Properties
+TARGET_SYSTEM_PROP := $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP := $(DEVICE_PATH)/vendor.prop
+TARGET_ODM_PROP := $(DEVICE_PATH)/odm.prop
+
+# System/Vendor/Product/Odm separation
+TARGET_COPY_OUT_SYSTEM := system
+TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_ODM := odm
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := a01q,m01q,sdm439
+
+# Power
+TARGET_USES_INTERACTION_BOOST := true
+
+# Protobuf
+PROTOBUF_SUPPORTED := true
+
+# Qualcomm
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_USES_QC_TIME_SERVICES := true
+
+# Recovery
+BOARD_HAS_DOWNLOAD_MODE := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/recovery.fstab
+TARGET_USERIMAGES_USE_F2FS := true
+TARGET_USERIMAGES_USE_EXT4 := true
+
+# TODO: SELinux
+include device/qcom/sepolicy-legacy-um/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
+# Vndk
+BOARD_VNDK_VERSION := current
+
+# Security patch level
+VENDOR_SECURITY_PATCH := 2021-02-01
+
+# Verified Boot
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+
+# Wi-Fi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WIFI_DRIVER_FW_PATH_AP := "ap"
+WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# Inherit the proprietary files
+include vendor/samsung/m01q/BoardConfigVendor.mk
