@@ -64,7 +64,7 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_BOOT_HEADER_VERSION := 2
@@ -81,9 +81,9 @@ BOARD_MKBOOTIMG_ARGS += \
 	--header_version $(BOARD_BOOT_HEADER_VERSION) \
 	--dtb $(TARGET_PREBUILT_DTB)
 
-# Kernel config
+# Kernel config 
 TARGET_KERNEL_VERSION := 4.9
-TARGET_KERNEL_CONFIG := samsung/m01q_open_defconfig
+TARGET_KERNEL_CONFIG := m11q_open_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/m01q
 
 # Kernel Toolchain
