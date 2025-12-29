@@ -1454,7 +1454,7 @@ vendor/lib/libchromatix_s5k5e9_snapshot.so
 vendor/lib/libchromatix_s5k5e9_video_full.so
 vendor/lib/libchromatix_s5k5e9_zsl_preview.so
 vendor/lib/libchromatix_s5k5e9_zsl_video.so
-vendor/lib/libcld80211.so
+#vendor/lib/libcld80211.so
 vendor/lib/libconfigdb.so
 vendor/lib/libcpion.so
 vendor/lib/libcppf.so
@@ -2018,7 +2018,7 @@ vendor/lib64/hw/power.default.so
 vendor/lib64/hw/power.qcom.so
 vendor/lib64/hw/thermal.msm8937.so
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
-#vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib64/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
@@ -2134,7 +2134,7 @@ vendor/lib64/libcapiv2vop.so
 vendor/lib64/libcdsp_default_listener.so
 vendor/lib64/libcdsprpc.so
 #vendor/lib64/libchiponeic_fingerprint_factory.so
-vendor/lib64/libcld80211.so
+#vendor/lib64/libcld80211.so
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
