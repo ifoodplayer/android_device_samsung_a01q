@@ -260,6 +260,9 @@ on boot
     #HS60 code for SR-ZQL1695-01-406 by zhuxiaoming at 2019/9/23 end
     #HS60 code for P190930-06236 by zhuxiaoming at 2019/10/10 end
 
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
+
 # msm specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
