@@ -16,7 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-# Inherit from m11q device
+# Inherit from m01q device
 $(call inherit-product, device/samsung/m01q/device.mk)
 
 # Inherit some common Lineage stuff.

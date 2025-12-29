@@ -19,6 +19,6 @@
           {device} - Device name
           {type} - Build type
     -->
-    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/ifoodplayer/ROM_OTA/lineage-17.1-sdm439/lineageOS-sdm439.json</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/ifoodplayer/ROM_OTA/lineage-17.1-sdm439/changelogs.txt</string>
+    <string name="updater_server_url" translatable="false">https://raw.githubusercontent.com/ifoodplayer/ROM_OTA/lineage-17.1-M01/lineageOS.json</string>
+    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/ifoodplayer/ROM_OTA/lineage-17.1-M01/changelogs.txt</string>
 </resources>

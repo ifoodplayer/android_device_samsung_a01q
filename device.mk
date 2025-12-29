@@ -15,23 +15,28 @@
 # Inherit from msm8937-common
 $(call inherit-product, device/samsung/sdm450_439-common/sdm450-439.mk)
 
-LOCAL_PATH := device/samsung/m01q
+# Call the proprietary setup
+$(call inherit-product, vendor/samsung/m01q/m01q-vendor.mk)
 
-# Enable updating of APEXes
-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+LOCAL_PATH := device/samsung/m01q
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS += *
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
     $(LOCAL_PATH)/overlay-lineage/packages/apps/Updater
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1520
 TARGET_SCREEN_WIDTH := 720
+
+# Properties
+-include $(LOCAL_PATH)/vendor_prop.mk
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
@@ -53,10 +58,6 @@ PRODUCT_PACKAGES += \
 	init.samsung.rc \
     init.target.rc
 
-# Samsung Doze
-PRODUCT_PACKAGES += \
-    SamsungDoze
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -72,7 +73,4 @@ PRODUCT_COPY_FILES += \
 # Seccomp
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
-
-# Call the proprietary setup
-$(call inherit-product, vendor/samsung/m01q/m01q-vendor.mk)
 
