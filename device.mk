@@ -55,7 +55,20 @@ PRODUCT_PACKAGES += \
 	init.samsung.rc \
     init.target.rc
 
+# Display
+PRODUCT_PACKAGES += \
+    gralloc.msm8937 \
+    hwcomposer.msm8937 \
+    memtrack.msm8937
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8937
+
 # Audio
+PRODUCT_PACKAGES += \
+    audio.primary.msm8937:32
+
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
 
