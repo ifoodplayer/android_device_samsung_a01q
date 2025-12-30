@@ -43,7 +43,6 @@ PRODUCT_SOONG_NAMESPACES += \
 PRODUCT_PACKAGES += \
     fstab.boot.qcom \
     fstab.qcom \
-    init.vendor.rilchip.rc \
 	init.hq.common.rc \
 	init.hq.shipping.rc \
 	init.m01q.rc \
