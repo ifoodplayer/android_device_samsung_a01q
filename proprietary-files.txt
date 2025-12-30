@@ -1,4 +1,12 @@
-#vendor/app/TimeService/TimeService.apk
+# FM
+lib/fm_helium.so
+lib/libfm-hci.so
+product/lib/vendor.qti.hardware.fm@1.0.so
+
+# Bluetooth-AptX
+lib/libaptX_encoder.so
+
+# Vendor blobs
 vendor/bin/ATFWD-daemon
 vendor/bin/KmInstallKeybox
 vendor/bin/PktRspTest
@@ -10,7 +18,7 @@ vendor/bin/athdiag
 vendor/bin/audioflacapp
 vendor/bin/awk
 vendor/bin/cdsprpcd
-vendor/bin/cnd
+#vendor/bin/cnd
 vendor/bin/cnss-daemon
 vendor/bin/cnss_diag
 vendor/bin/cplay
@@ -21,10 +29,10 @@ vendor/bin/diag_klog
 vendor/bin/diag_mdlog
 vendor/bin/diag_socket_log
 vendor/bin/diag_uart_log
-vendor/bin/dpmQmiMgr
+#vendor/bin/dpmQmiMgr
 vendor/bin/dumpsys
 vendor/bin/e_loop
-vendor/bin/energy-awareness
+#vendor/bin/energy-awareness
 vendor/bin/fm_qsoc_patches
 vendor/bin/fmconfig
 vendor/bin/fmfactorytest
@@ -33,7 +41,7 @@ vendor/bin/fstman
 vendor/bin/ftmdaemon
 vendor/bin/grep
 vendor/bin/hal_proxy_daemon
-vendor/bin/hbtp_daemon
+#vendor/bin/hbtp_daemon
 vendor/bin/hostapd_cli
 vendor/bin/hqread
 vendor/bin/hvdcp_opti
@@ -97,8 +105,8 @@ vendor/bin/irsc_util
 vendor/bin/loc_launcher
 vendor/bin/logwrapper
 vendor/bin/lowi-server
-vendor/bin/mlid
-vendor/bin/mm-pp-dpps
+#vendor/bin/mlid
+#vendor/bin/mm-pp-dpps
 vendor/bin/mm-qcamera-app
 vendor/bin/mm-qjpeg-dec-test
 vendor/bin/mm-qjpeg-enc-test
@@ -112,9 +120,9 @@ vendor/bin/pm-service
 vendor/bin/ptt_socket_app
 vendor/bin/qjpeg-dma-test
 #vendor/bin/qmi-framework-tests/qmi_test_mt_client_init_instance
-vendor/bin/qrtr-cfg
-vendor/bin/qrtr-lookup
-vendor/bin/qrtr-ns
+#vendor/bin/qrtr-cfg
+#vendor/bin/qrtr-lookup
+#vendor/bin/qrtr-ns
 vendor/bin/qseecom_sample_client
 vendor/bin/qseecomd
 vendor/bin/rmt_storage
@@ -150,8 +158,8 @@ vendor/bin/wdsdaemon
 vendor/bin/wpa_cli
 vendor/bin/wvkprov
 vendor/bin/xtra-daemon
-vendor/bin/xtwifi-client
-vendor/bin/xtwifi-inet-agent
+#vendor/bin/xtwifi-client
+#vendor/bin/xtwifi-inet-agent
 #vendor/etc/IPACM_cfg.xml
 #vendor/etc/NOTICE.xml.gz
 #vendor/etc/a2dp_audio_policy_configuration.xml
@@ -461,7 +469,7 @@ vendor/etc/init/init-qcril-data.rc
 vendor/etc/init/init.qti.fm.rc
 vendor/etc/init/init.time_daemon.rc
 vendor/etc/init/init.vendor.onebinary.rc
-vendor/etc/init/init.vendor.rilchip.rc
+#vendor/etc/init/init.vendor.rilchip.rc
 vendor/etc/init/init.vendor.rilcommon.rc
 vendor/etc/init/ipacm-diag.rc
 vendor/etc/init/ipacm.rc
@@ -669,10 +677,10 @@ vendor/firmware/wlan/prima/WCNSS_cfg.dat
 vendor/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 vendor/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
-vendor/lib/android.hardware.audio.common-util.so
-vendor/lib/android.hardware.audio.common@2.0-util.so
-vendor/lib/android.hardware.audio.common@4.0-util.so
-vendor/lib/android.hardware.audio.common@5.0-util.so
+#vendor/lib/android.hardware.audio.common-util.so
+#vendor/lib/android.hardware.audio.common@2.0-util.so
+#vendor/lib/android.hardware.audio.common@4.0-util.so
+#vendor/lib/android.hardware.audio.common@5.0-util.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy.so
 vendor/lib/android.hidl.base@1.0.so
@@ -1941,10 +1949,10 @@ vendor/lib/vendor.samsung.hardware.security.widevine.keyprovisioning@1.0.so
 vendor/lib/vndk/libstagefright_foundation.so
 vendor/lib/vndk/libstagefright_omx_utils.so
 vendor/lib/vndk/libstagefright_xmlparser.so
-vendor/lib64/android.hardware.audio.common-util.so
-vendor/lib64/android.hardware.audio.common@2.0-util.so
-vendor/lib64/android.hardware.audio.common@4.0-util.so
-vendor/lib64/android.hardware.audio.common@5.0-util.so
+#vendor/lib64/android.hardware.audio.common-util.so
+#vendor/lib64/android.hardware.audio.common@2.0-util.so
+#vendor/lib64/android.hardware.audio.common@4.0-util.so
+#vendor/lib64/android.hardware.audio.common@5.0-util.so
 vendor/lib64/android.hardware.camera.provider@2.4-external.so
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
 vendor/lib64/android.hidl.base@1.0.so
