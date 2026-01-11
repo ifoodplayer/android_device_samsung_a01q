@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-LOCAL_PATH := device/samsung/m01q
+LOCAL_PATH := device/samsung/a01q
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
@@ -58,7 +58,7 @@ PRODUCT_PACKAGES += \
     init.vendor.rilchip.rc \
 	init.hq.common.rc \
 	init.hq.shipping.rc \
-	init.m01q.rc \
+	init.a01q.rc \
     init.msm.usb.configfs.rc \
     init.qcom.rc \
 	init.qcom.factory.rc \
@@ -91,8 +91,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungDoze
 
-# TimeService (Prebuilt)
+# Prebuilts
 PRODUCT_PACKAGES += \
+    incallservice \
     TimeService
 
 # Recovery
@@ -320,4 +321,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=adb
 
 # Call the proprietary setup
-$(call inherit-product, vendor/samsung/m01q/m01q-vendor.mk)
+$(call inherit-product, vendor/samsung/a01q/a01q-vendor.mk)

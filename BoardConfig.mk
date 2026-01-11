@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-DEVICE_PATH := device/samsung/m01q
+DEVICE_PATH := device/samsung/a01q
 BUILD_TOP := $(shell pwd)
 
 # Architecture
@@ -243,7 +243,7 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-02-01
+VENDOR_SECURITY_PATCH := 2021-04-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -269,4 +269,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit the proprietary files
--include vendor/samsung/m01q/BoardConfigVendor.mk
+-include vendor/samsung/a01q/BoardConfigVendor.mk

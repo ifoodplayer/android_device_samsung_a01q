@@ -17,16 +17,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from m01q device
-$(call inherit-product, device/samsung/m01q/device.mk)
+$(call inherit-product, device/samsung/a01q/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_DEVICE := m01q
-PRODUCT_NAME := lineage_m01q
+PRODUCT_DEVICE := a01q
+PRODUCT_NAME := lineage_a01q
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-M015F
+PRODUCT_MODEL := SM-A015M
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="a01qub-user 10 QP1A.190711.020 A015MUBU4AUD9 release-keys"
+
+# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
+BUILD_FINGERPRINT := "samsung/a01qub/a01q:10/QP1A.190711.020/A015MUBU4AUD9:user/release-keys"

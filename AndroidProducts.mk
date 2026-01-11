@@ -13,10 +13,10 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_m01q.mk
+    $(LOCAL_DIR)/lineage_a01q.mk
 
 
 COMMON_LUNCH_CHOICES := \
-    lineage_m01q-userdebug \
-    lineage_m01q-eng \
-    lineage_m01q-user
+    lineage_a01q-userdebug \
+    lineage_a01q-eng \
+    lineage_a01q-user
