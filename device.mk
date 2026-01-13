@@ -139,8 +139,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Audio
-#PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0-impl \
+PRODUCT_PACKAGES += \
+    android.hardware.audio@5.0-impla.a01q \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.soundtrigger@2.1-impl \
