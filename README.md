@@ -1,7 +1,7 @@
 Device tree for the Samsung Galaxy A01/M01
 =================================================
 
-Status: Work In Progress
+Status: Booted (Build User variant is not booting)
 
   ## Device Specifications
  
@@ -23,4 +23,4 @@ Status: Work In Progress
  
  ## Device Picture
  
- ![Samsung Galaxy M01](https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-m01-1.jpg)
+ ![Samsung Galaxy A01](https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-a01-1.jpg)

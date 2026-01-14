@@ -155,6 +155,9 @@ ifeq ($(HOST_OS),linux)
 endif
 WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # FM
 BOARD_HAVE_QCOM_FM := true
 BOARD_HAS_QCA_FM_SOC := "cherokee"

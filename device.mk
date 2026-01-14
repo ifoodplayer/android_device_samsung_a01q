@@ -55,7 +55,6 @@ PRODUCT_PACKAGES += \
     fstab.boot.qcom \
     fstab.qcom \
     zram.fstab \
-    init.vendor.rilchip.rc \
 	init.hq.common.rc \
 	init.hq.shipping.rc \
 	init.a01q.rc \
@@ -140,7 +139,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@5.0-impla.a01q \
+    android.hardware.audio@5.0-impl.a01q \
     android.hardware.audio@2.0-service:32 \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.soundtrigger@2.1-impl \
@@ -154,9 +153,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/configs/,$(TARGET_COPY_OUT_VENDOR)/etc) \
-    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/hearing_aid_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hearing_aid_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
@@ -234,8 +234,7 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service \
-    power.qcom
+    android.hardware.power@1.0-service
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -253,6 +252,10 @@ PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
 # RIL
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.vendor.epdg.support=true \
+    ro.radio.noril=no
+
 PRODUCT_PACKAGES += \
     librmnetctl \
     libcnefeatureconfig \
@@ -308,14 +311,14 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
 
 # For userdebug builds
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \
 	ro.adb.secure=0 \
 	ro.debuggable=1 \
 	persist.sys.root_access=1 \
 	persist.service.adb.enable=1
 
-PRODUCT_PROPERTY_OVERRIDES += \
+#PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=adb
 
 # Call the proprietary setup

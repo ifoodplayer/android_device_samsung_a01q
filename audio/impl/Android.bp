@@ -1,5 +1,5 @@
 cc_defaults {
-    name: "android.hardware.audio-impl_gts4lv",
+    name: "android.hardware.audio-impl_a01q",
     relative_install_path: "hw",
     proprietary: true,
     vendor: true,
@@ -45,13 +45,14 @@ cc_defaults {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@2.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@2.0-impl.a01q",
+    defaults: ["android.hardware.audio-impl_a01q"],
 
     shared_libs: [
         "android.hardware.audio@2.0",
         "android.hardware.audio.common@2.0",
         "android.hardware.audio.common@2.0-util",
+        "libcutils",
     ],
 
     cflags: [
@@ -62,13 +63,14 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@4.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@4.0-impl.a01q",
+    defaults: ["android.hardware.audio-impl_a01q"],
 
     shared_libs: [
         "android.hardware.audio@4.0",
         "android.hardware.audio.common@4.0",
         "android.hardware.audio.common@4.0-util",
+        "libcutils",
     ],
 
     cflags: [
@@ -79,13 +81,14 @@ cc_library_shared {
 }
 
 cc_library_shared {
-    name: "android.hardware.audio@5.0-impl.gts4lv",
-    defaults: ["android.hardware.audio-impl_gts4lv"],
+    name: "android.hardware.audio@5.0-impl.a01q",
+    defaults: ["android.hardware.audio-impl_a01q"],
 
     shared_libs: [
         "android.hardware.audio@5.0",
         "android.hardware.audio.common@5.0",
         "android.hardware.audio.common@5.0-util",
+        "libcutils",
     ],
 
     cflags: [

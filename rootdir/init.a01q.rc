@@ -29,7 +29,7 @@
 #
 on boot
 # SSWAP
-    write /proc/sys/vm/swappiness 130
+    write /proc/sys/vm/swappiness 160
 
 # SSWAP
 service swapon /sbin/sswap -s -z -f 1536
