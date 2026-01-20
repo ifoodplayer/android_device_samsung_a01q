@@ -122,6 +122,9 @@ on post-fs-data
 
 on boot
 
+    chown system system /sys/class/sec/sec_debug/FMM_lock
+    chmod 0660 /sys/class/sec/sec_debug/FMM_lock
+
 on shutdown
 
 # service definition
@@ -133,3 +136,6 @@ on property:ro.bootmode=charger
     write /dev/watchdog "V"
 on property:ro.boot.verifiedbootstate=orange  # orange : unlocked state of GSI img
     write /dev/watchdog "V"
+on property:persist.vendor.softdog=off
+    write /dev/watchdog "V"
+    chown root root /dev/watchdog

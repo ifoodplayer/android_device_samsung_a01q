@@ -34,3 +34,11 @@ on init
     symlink /dev/block/platform/soc/7824900.sdhci/by-name/steady  /dev/block/steady
     symlink /dev/block/platform/soc/7824900.sdhci/by-name/persistent  /dev/block/persistent
 
+    # Property used by vintf for sku specific manifests
+    setprop ro.boot.product.hardware.sku ${ro.boot.hardware.sku}
+
+on post-fs-data
+    # carrier partition
+    chown system system /carrier
+    chmod 0771 /carrier
+    restorecon /carrier

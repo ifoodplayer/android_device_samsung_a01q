@@ -22,6 +22,8 @@ on post-fs
     chown system system /efs/*
     chmod 0771 /efs
     chmod 0771 /efs/*
+	chmod 0775 /efs/FactoryApp
+    chmod 0775 /efs/bluetooth
     chown system system /sys/class/sec/tsp/cmd
     chown system system /sys/class/sec/tsp/input/enabled
 # HS60 code added by tangqingyong for factory could write the dir at 20190806 end
