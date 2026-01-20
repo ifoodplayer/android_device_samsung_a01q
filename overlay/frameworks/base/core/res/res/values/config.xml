@@ -3,16 +3,10 @@
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
-
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
-
-     <!-- Boolean indicating if current platform supports HFP inband ringing -->
     <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
-
-    <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
-
     <bool name="config_camera_sound_forced">false</bool>
     <bool name="config_carrier_volte_available">true</bool>
     <bool name="config_cellBroadcastAppLinks">true</bool>
@@ -20,10 +14,11 @@
     <bool name="config_device_vt_available">true</bool>
     <bool name="config_device_wfc_ims_available">true</bool>
     <bool name="config_enableMultiUserUI">true</bool>
+    <bool name="config_hearing_aid_profile_supported">false</bool>
     <bool name="config_hotswapCapable">true</bool>
     <bool name="config_showNavigationBar">true</bool>
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
-    <bool name="config_supportAudioSourceUnprocessed">false</bool>
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
     <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
     <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
@@ -34,12 +29,6 @@
     <bool name="config_wifi_dual_band_support">true</bool>
     <bool name="config_wifi_softap_acs_supported">false</bool>
     <bool name="config_wifi_softap_ieee80211ac_supported">false</bool>
-    <string name="config_ims_package">org.codeaurora.ims</string>
-    <bool name="config_dynamic_bind_ims">true</bool>
-        <!-- Flag indicating whether the surface flinger has limited
-         alpha compositing functionality in hardware.  If set, the window
-         manager will disable alpha trasformation in animations where not
-         strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
     <string-array name="config_mobile_tcp_buffers">
         <item>5gnr:2097152,6291456,16777216,512000,2097152,8388608</item>

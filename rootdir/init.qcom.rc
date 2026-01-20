@@ -77,6 +77,15 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
+    # E: Failed to open /dev/qseecom device
+    chmod 0666 /dev/qseecom
+
+    # E QSEECOMAPI: Error::Cannot open ION device
+    chmod 0666 /dev/ion
+
+    # E Adreno-GSL: <ioctl_kgsl_driver_entry:878>: open(/dev/kgsl-3d0) failed: errno 13. Permission denied
+    chmod 0666 /dev/kgsl-3d0
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
@@ -272,6 +281,9 @@ on boot
     #HS60 code for P190930-06236 by zhuxiaoming at 2019/10/10 end
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
+
+    # Wifi firmware reload path
+    chown wifi wifi /sys/module/wlan/parameters/fwpath
 
 # msm specific files that need to be created on /data
 on post-fs-data

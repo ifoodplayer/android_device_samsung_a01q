@@ -35,17 +35,21 @@ TARGET_USES_64_BIT_BINDER := true
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := msm8937
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
+TARGET_ENFORCES_QSSI := true
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Board
+TARGET_BOARD_INFO_FILE ?= $(DEVICE_PATH)/board-info.txt
 TARGET_BOOTLOADER_BOARD_NAME := QC_Reference_Phone
 TARGET_NO_BOOTLOADER := true
 
 # Build flags
+ALLOW_MISSING_DEPENDENCIES=true
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Kernel
-TARGET_KERNEL_ARCH := arm64
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x02000000
@@ -61,7 +65,7 @@ BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-BOARD_KERNEL_CMDLINE := console=null androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.usbconfigfs=true loop.max_part=7 printk.devkmsg=on
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_BOOT_HEADER_VERSION := 2
 
@@ -77,16 +81,19 @@ BOARD_MKBOOTIMG_ARGS += \
 	--header_version $(BOARD_BOOT_HEADER_VERSION) \
 	--dtb $(TARGET_PREBUILT_DTB)
 
-# Kernel config - Use the m11q kernel because the a01 kernel is broken in the build, but switch to the a01 kernel via recovery.
-TARGET_KERNEL_VERSION := 4.9
-TARGET_KERNEL_CONFIG := m11q_open_defconfig
+# Kernel - prebuilt
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+endif
+
+# Kernel config
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/samsung/m11q
+TARGET_KERNEL_CONFIG := m11q_open_defconfig
+TARGET_KERNEL_VERSION := 4.9
 
-# Kernel Toolchain
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-KERNEL_TOOLCHAIN := $(BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
-
-# fix this up by examining /proc/mtd on a running device
 BOARD_PRODUCTIMAGE_PARTITION_SIZE := 1073741824
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608 #27
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432 #62
@@ -130,46 +137,34 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
-BOARD_QTI_CAMERA_32BIT_ONLY := true
-TARGET_SUPPORT_HAL1 := false
-
-# CNE
-BOARD_USES_QCNE := true
 
 # Graphics
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
+TARGET_USES_ALIGNED_YCBCR_HEIGHT := true
+TARGET_USES_YCRCB_CAMERA_PREVIEW := true
+
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
-# Dexpreopt
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
-
-# RIL
-ENABLE_VENDOR_RIL_SERVICE := true
-
 # FM
 BOARD_HAVE_QCOM_FM := true
-BOARD_HAS_QCA_FM_SOC := "cherokee"
+BOARD_HAS_QCA_FM_SOC := cherokee
+
+# RIL
+#BOARD_PROVIDES_LIBRIL := true
+ENABLE_VENDOR_RIL_SERVICE := true
+
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /vendor/lib/libsec-ril.so|libcutils_shim.so \
+    /vendor/lib/libsec-ril-dsds.so|libcutils_shim.so
 
 # HIDL
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_msm8937
-TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8937
 
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
@@ -227,13 +222,15 @@ PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2021-04-01
+VENDOR_SECURITY_PATCH := 2022-08-01
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
@@ -244,13 +241,14 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-PRODUCT_VENDOR_MOVE_ENABLED := true
-TARGET_DISABLE_WCNSS_CONFIG_COPY := true
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP := "ap"
+WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 WIFI_AVOID_IFACE_RESET_MAC_CHANGE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_MODULE_PATH := "/vendor/lib/modules/pronto_wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "pronto_wlan"
 
 # Inherit the proprietary files
 -include vendor/samsung/a01q/BoardConfigVendor.mk
