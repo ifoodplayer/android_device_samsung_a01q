@@ -1,7 +1,7 @@
 Device tree for the Samsung Galaxy A01/M01
 =================================================
 
-Status: Booted (Build User variant is not booting)
+Status: This branch will not receive any new updates
 
   ## Device Specifications
  
