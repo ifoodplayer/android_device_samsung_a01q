@@ -227,8 +227,8 @@ vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@2.0-impl.so
 vendor/lib/libbtnv.so
-#vendor/lib/hw/audio.bluetooth_qti.default.so
-#vendor/lib/libbluetooth_audio_session_qti.so
+vendor/lib/hw/audio.bluetooth_qti.default.so
+vendor/lib/libbluetooth_audio_session_qti.so
 vendor/lib/libbluetooth_audio_session_qti_2_1.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so
@@ -2055,7 +2055,7 @@ vendor/lib/hw/face.default.so
 #vendor/lib/hw/local_time.default.so
 #vendor/lib/hw/memtrack.msm8937.so
 #vendor/lib/hw/power.default.so
-#vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
+vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.bluetooth_audio@2.1-impl.so
 vendor/lib/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so
 vendor/lib/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
