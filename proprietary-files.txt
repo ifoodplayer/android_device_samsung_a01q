@@ -1536,7 +1536,6 @@ vendor/bin/rmt_storage
 vendor/bin/tftp_server
 vendor/etc/data/dsi_config.xml
 vendor/etc/init/vendor.qti.rmt_storage.rc
-vendor/etc/init/vendor.qti.tftp.rc
 vendor/lib/libdiag.so
 vendor/lib/libdiagjni.so
 vendor/lib/libdsi_netctrl.so
