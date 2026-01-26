@@ -26,6 +26,8 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 #
+
+# Bluetooth Fix
 import /vendor/etc/init/hw/init.hq.common.rc
 
 import init.carrier.rc
@@ -80,6 +82,8 @@ on post-fs-data
 # HS60 code added for enable dynamic partition by tangqingyong at 20191011 start
 on late-fs
     mount_all /vendor/etc/fstab.qcom --late
+    swapon_all /vendor/etc/zram.fstab
+
 # HS60 code added for enable dynamic partition by tangqingyong at 20191011 end
 
 on early-boot
