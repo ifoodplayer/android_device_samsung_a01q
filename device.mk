@@ -147,9 +147,13 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing:32 \
     libeffectsconfig:32 \
     libsndmonitor:32 \
-    libspkrprot:32 \
-    libtinycompress:32
+    libspkrprot:32
 
+# Audio - Custom prebuilt lib
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/custom/libtinycompress.so:$(TARGET_COPY_OUT_VENDOR)/lib/libtinycompress.so
+
+# Audio - Configs
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/configs/,$(TARGET_COPY_OUT_VENDOR)/etc) \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
