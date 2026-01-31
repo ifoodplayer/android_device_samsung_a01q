@@ -60,7 +60,6 @@ PRODUCT_PACKAGES += \
 	init.a01q.rc \
     init.qcom.rc \
 	init.qcom.factory.rc \
-    init.qcom.rc \
     init.qcom.usb.rc \
 	init.samsung.bsp.rc \
 	init.samsung.rc \
@@ -85,11 +84,6 @@ PRODUCT_PACKAGES += \
 # Samsung Doze
 PRODUCT_PACKAGES += \
     SamsungDoze
-
-# Prebuilts
-PRODUCT_PACKAGES += \
-    incallservice \
-    TimeService
 
 # Recovery
 PRODUCT_COPY_FILES += \
@@ -174,10 +168,6 @@ PRODUCT_PACKAGES += \
     libbt-hidlclient:32 \
     vendor.qti.hardware.btconfigstore@1.0.vendor:32 \
     vendor.qti.hardware.btconfigstore@2.0.vendor:32
-
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@2.0.vendor:32
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -392,14 +382,14 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
 
 # For userdebug builds
-#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	ro.secure=0 \
 	ro.adb.secure=0 \
 	ro.debuggable=1 \
 	persist.sys.root_access=1 \
 	persist.service.adb.enable=1
 
-#PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=adb
 
 # Call the proprietary setup

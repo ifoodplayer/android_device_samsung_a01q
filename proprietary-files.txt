@@ -1272,7 +1272,6 @@ vendor/etc/gps.conf
 vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/sap.conf
-vendor/etc/xtra_root_cert.pem
 vendor/lib/hw/android.hardware.gnss@2.1-impl-qti.so
 vendor/lib/hw/vendor.samsung.hardware.gnss@2.0-impl-sec.so
 vendor/lib/libbatching.so
