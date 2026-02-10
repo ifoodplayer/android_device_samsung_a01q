@@ -374,16 +374,5 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/seccomp/,$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy)
 
-# For userdebug builds
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	ro.secure=0 \
-	ro.adb.secure=0 \
-	ro.debuggable=1 \
-	persist.sys.root_access=1 \
-	persist.service.adb.enable=1
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=adb
-
 # Call the proprietary setup
 $(call inherit-product, vendor/samsung/a01q/a01q-vendor.mk)
