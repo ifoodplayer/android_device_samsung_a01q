@@ -1156,18 +1156,16 @@ vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
 
 # DRM-Widevine
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine
-vendor/bin/vendor.samsung.hardware.security.widevine.keyprov@1.0-service
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc
-vendor/etc/init/vendor.samsung.hardware.security.widevine.keyprov@1.0-service.rc
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
 vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/libwvhidl.so
-vendor/lib/vendor.samsung.hardware.security.widevine.keyprov@1.0.so
 
-# DRM-Clearkey
-vendor/bin/hw/android.hardware.drm@1.3-service.clearkey
-vendor/etc/init/android.hardware.drm@1.3-service.clearkey.rc
--vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.clearkey.xml
+# DRM-Widevine key provisioning
+vendor/bin/vendor.samsung.hardware.security.widevine.keyprov@1.0-service
+vendor/bin/wvkprov
+vendor/etc/init/vendor.samsung.hardware.security.widevine.keyprov@1.0-service.rc
+vendor/lib/vendor.samsung.hardware.security.widevine.keyprov@1.0.so
 
 # DSP
 vendor/bin/dspservice
@@ -1808,7 +1806,6 @@ vendor/bin/tbaseLoader
 #vendor/bin/vndservicemanager
 #vendor/bin/wcnss_service
 #vendor/bin/wpa_cli
-vendor/bin/wvkprov
 #vendor/etc/IPACM_cfg.xml
 vendor/etc/audio_configs.xml
 vendor/etc/audio_effects.conf
