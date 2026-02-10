@@ -79,6 +79,7 @@ on post-fs-data
 
 # HS60 code added for enable dynamic partition by tangqingyong at 20191011 start
 on late-fs
+    exec_start wait_for_keymaster
     mount_all /vendor/etc/fstab.qcom --late
     swapon_all /vendor/etc/zram.fstab
 
