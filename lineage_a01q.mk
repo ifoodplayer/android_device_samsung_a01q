@@ -26,13 +26,13 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 PRODUCT_DEVICE := a01q
 PRODUCT_NAME := lineage_a01q
 PRODUCT_BRAND := samsung
-PRODUCT_MODEL := SM-A015M
+PRODUCT_MODEL := SM-A015F
 PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="a01qub-user 11 RP1A.200720.012 A015MUBU4BVH2 release-keys"
+    PRIVATE_BUILD_DESC="a01qxx-user 11 RP1A.200720.012 A015FXXU5BVG2 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "samsung/a01qub/a01q:11/RP1A.200720.012/A015MUBU4BVH2:user/release-keys"
+BUILD_FINGERPRINT := "samsung/a01qxx/a01q:11/RP1A.200720.012/A015FXXU5BVG2:user/release-keys"

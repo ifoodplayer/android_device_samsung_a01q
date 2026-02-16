@@ -43,9 +43,6 @@ PRODUCT_BUILD_SUPER_PARTITION := false
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 29
 
-# Product characteristics
-PRODUCT_CHARACTERISTICS := default
-
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
@@ -119,7 +116,7 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl.sdm439:32 \
+    android.hardware.audio@6.0-impl.a01q:32 \
     android.hardware.audio.service:32 \
     android.hardware.audio.effect@6.0-impl:32 \
     android.hardware.soundtrigger@2.1-impl:32 \
@@ -155,7 +152,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor:32 \
     android.hardware.bluetooth.a2dp@1.0.vendor:32 \
     android.hardware.bluetooth.audio@2.0-impl:32 \
-    libbluetooth_audio_session:32 \
     audio.bluetooth.default:32 \
     libbt-hidlclient:32 \
     vendor.qti.hardware.btconfigstore@1.0.vendor:32 \
@@ -198,10 +194,6 @@ PRODUCT_PACKAGES += \
     vendor.display.config@2.0.vendor \
     vulkan.pastel
 
-# Config Store
-PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.1-service
-
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
@@ -211,8 +203,7 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     libhidltransport.vendor \
-    libhwbinder.vendor \
-    vndservicemanager
+    libhwbinder.vendor
 
 # IPA Manager
 PRODUCT_PACKAGES += \
@@ -233,7 +224,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl:64 \
+    android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
 # Capability Configstore
@@ -261,19 +252,18 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti-sdm439 \
+    android.hardware.power-service-qti-a01q \
     android.hardware.power@1.2.vendor \
     vendor.qti.hardware.perf@2.2.vendor:32
 
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:32 \
-    android.hardware.sensors@1.0-service.sdm439
+    android.hardware.sensors@1.0-service-a01q
 
 # VNDK
 PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so \
-    prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so
+    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -291,12 +281,15 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2.vendor:32 \
     android.hardware.radio.deprecated@1.0.vendor:32 \
     android.hardware.secure_element@1.0.vendor:32 \
-    libcnefeatureconfig \
     libxml2 \
     libcutils_shim
 
 # Telephony
 PRODUCT_PACKAGES += \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
@@ -316,7 +309,6 @@ PRODUCT_COPY_FILES += \
 
 # Omx
 PRODUCT_PACKAGES += \
-    android.hardware.media.omx@1.0-service \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \

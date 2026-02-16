@@ -1,7 +1,7 @@
 Device tree for the Samsung Galaxy A01/M01
 =================================================
 
-Status: WIP
+Status: Vendor VNDK32 Booted
 
   ## Device Specifications
  
