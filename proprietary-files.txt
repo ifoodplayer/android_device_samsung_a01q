@@ -239,6 +239,30 @@ vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
 # CNE
+system_ext/framework/com.quicinc.cne.api-V1.0-java.jar
+system_ext/framework/com.quicinc.cne.api-V1.1-java.jar
+system_ext/framework/com.quicinc.cne.constants-V1.0-java.jar
+system_ext/framework/com.quicinc.cne.constants-V2.0-java.jar
+system_ext/framework/com.quicinc.cne.constants-V2.1-java.jar
+system_ext/framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+system_ext/framework/vendor.qti.hardware.data.connection-V1.1-java.jar
+system_ext/framework/vendor.qti.hardware.data.qmi-V1.0-java.jar
+system_ext/lib/com.quicinc.cne.api@1.0.so
+system_ext/lib/com.quicinc.cne.api@1.1.so
+system_ext/lib/com.quicinc.cne.constants@1.0.so
+system_ext/lib/com.quicinc.cne.constants@2.0.so
+system_ext/lib/com.quicinc.cne.constants@2.1.so
+system_ext/lib/vendor.qti.hardware.data.connection@1.0.so
+system_ext/lib/vendor.qti.hardware.data.connection@1.1.so
+system_ext/lib/vendor.qti.hardware.data.qmi@1.0.so
+system_ext/lib64/com.quicinc.cne.api@1.0.so
+system_ext/lib64/com.quicinc.cne.api@1.1.so
+system_ext/lib64/com.quicinc.cne.constants@1.0.so
+system_ext/lib64/com.quicinc.cne.constants@2.0.so
+system_ext/lib64/com.quicinc.cne.constants@2.1.so
+system_ext/lib64/vendor.qti.hardware.data.connection@1.0.so
+system_ext/lib64/vendor.qti.hardware.data.connection@1.1.so
+system_ext/lib64/vendor.qti.hardware.data.qmi@1.0.so
 vendor/lib/libxml.so
 vendor/lib/vendor.qti.hardware.data.connection@1.0.so
 vendor/lib/vendor.qti.hardware.data.connection@1.1.so
@@ -292,7 +316,7 @@ vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib64/android.hardware.camera.provider@2.4-external.so
 vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
 
-# Camera-Dualcali_Golden
+# Camera-Dualcali
 vendor/lib/dualcali_golden.bin
 vendor/lib/dualcali_golden_2.bin
 vendor/lib/dualcali_golden_3.bin
@@ -300,6 +324,17 @@ vendor/lib/dualcali_golden_4.bin
 vendor/lib/dualcali_golden_5.bin
 vendor/lib/dualcali_golden_6.bin
 vendor/lib/dualcali_golden_7.bin
+
+# Camera-Arcsoft
+vendor/lib/libarcsoft_beauty_outfocus.so
+vendor/lib/libarcsoft_beauty_performance.so
+vendor/lib/libarcsoft_beautyshot.so
+vendor/lib/libarcsoft_bokeh_basic.so
+vendor/lib/libarcsoft_dehaze.so
+vendor/lib/libarcsoft_dualcam_refocus_image.so
+vendor/lib/libarcsoft_dualcam_refocus_video.so
+vendor/lib/libarcsoft_faceid.so
+vendor/lib/libgoldencali_arcsoft.so
 
 # Camera-actuators
 vendor/lib/libactuator_dw9714.so
@@ -1187,11 +1222,18 @@ app/FmTest/lib/arm64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.h
 vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
+# Factory
+system_ext/framework/vendor.qti.data.factory-V1.0-java.jar
+system_ext/framework/vendor.qti.data.factory-V2.0-java.jar
+system_ext/framework/vendor.qti.data.factory-V2.1-java.jar
+system_ext/framework/vendor.qti.data.factory-V2.2-java.jar
+
 # Fingerprint
 vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
 # Firmware
+etc/firmware/ice40.bin:vendor/firmware/ice40.bin
 vendor/firmware/AbovCapSense90.BIN
 vendor/firmware/AbovCapSense93.BIN
 vendor/firmware/AbovCapSense93C.BIN
@@ -1588,6 +1630,12 @@ vendor/bin/subsystem_ramdump
 vendor/lib/libsubsystem_control.so
 vendor/lib64/libsubsystem_control.so
 
+# Seccam
+system_ext/lib/libseccam.so
+system_ext/lib/vendor.qti.hardware.seccam@1.0.so
+system_ext/lib64/libseccam.so
+system_ext/lib64/vendor.qti.hardware.seccam@1.0.so
+
 # Sensor-configs
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sensor_def_qcomdev.conf
@@ -1604,6 +1652,7 @@ vendor/lib/sensors.ssc.so
 # Soter
 system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar
 system_ext/lib/vendor.qti.hardware.soter@1.0.so
+system_ext/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/SoterProvisioningTool
 vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/lib/vendor.qti.hardware.soter@1.0.so
@@ -1636,6 +1685,10 @@ vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # VPP
+system_ext/lib/vendor.qti.hardware.vpp@1.1.so
+system_ext/lib/vendor.qti.hardware.vpp@1.2.so
+system_ext/lib64/vendor.qti.hardware.vpp@1.1.so
+system_ext/lib64/vendor.qti.hardware.vpp@1.2.so
 vendor/lib/libvpplibrary.so
 vendor/lib/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/vendor.qti.hardware.vpp@1.2.so
@@ -1766,14 +1819,6 @@ vendor/lib/libSecC2ComponentStore.so
 vendor/lib/libVkLayer_q3dtools.so
 vendor/lib/lib_SoundAlive_3DPosition_ver202.so
 vendor/lib/libalsautils.so
-vendor/lib/libarcsoft_beauty_outfocus.so
-vendor/lib/libarcsoft_beauty_performance.so
-vendor/lib/libarcsoft_beautyshot.so
-vendor/lib/libarcsoft_bokeh_basic.so
-vendor/lib/libarcsoft_dehaze.so
-vendor/lib/libarcsoft_dualcam_refocus_image.so
-vendor/lib/libarcsoft_dualcam_refocus_video.so
-vendor/lib/libarcsoft_faceid.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libautohal.so
 vendor/lib/libbatterylistener.so
@@ -1788,7 +1833,6 @@ vendor/lib/libdsms_vendor.so
 vendor/lib/libengmode_client.so
 vendor/lib/libexthwplugin.so
 vendor/lib/libfastcrc.so
-vendor/lib/libgoldencali_arcsoft.so
 vendor/lib/libgsl.so
 vendor/lib/libhdmipassthru.so
 vendor/lib/libhwc2on1adapter.so
