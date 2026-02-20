@@ -1680,6 +1680,13 @@ vendor/lib/libstreamparser.so
 vendor/lib64/libUBWC.so
 vendor/lib64/libstreamparser.so
 
+# Vibrator
+vendor/bin/hw/vendor.samsung.hardware.vibrator@2.2-service
+vendor/etc/init/vendor.samsung.hardware.vibrator@2.2-service.rc
+vendor/lib/vendor.samsung.hardware.vibrator@2.0.so
+vendor/lib/vendor.samsung.hardware.vibrator@2.1.so
+vendor/lib/vendor.samsung.hardware.vibrator@2.2.so
+
 # Voice
 vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
@@ -1799,7 +1806,6 @@ vendor/etc/mixer_paths_sdm439_pm8953_tfa.xml
 vendor/etc/mixer_paths_sku1.xml
 vendor/etc/mixer_paths_tasha.xml
 vendor/etc/mixer_paths_tashalite.xml
-vendor/etc/msm_irqbalance.conf
 vendor/etc/mtu-conf.xml
 vendor/etc/pdpcnt-conf.xml
 vendor/etc/playback_record_audio_policy_configuration.xml
