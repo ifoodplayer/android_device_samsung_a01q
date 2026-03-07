@@ -22,12 +22,18 @@ $(call inherit-product, device/samsung/a01q/device.mk)
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Set those variables here to overwrite the inherited values.
+PRODUCT_CHARACTERISTICS := default
+
 PRODUCT_DEVICE := a01q
 PRODUCT_NAME := lineage_a01q
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A015F
 PRODUCT_MANUFACTURER := samsung
+
+PRODUCT_SYSTEM_NAME := a01qxx
+
+TARGET_VENDOR := samsung
+TARGET_VENDOR_PRODUCT_NAME := a01q
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
