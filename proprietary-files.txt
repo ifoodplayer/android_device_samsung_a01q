@@ -230,9 +230,6 @@ vendor/lib/libbtnv.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.1.so
 
-# Bluetooth-AptX
-lib/libaptX_encoder.so
-
 # Configstore
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
@@ -1216,9 +1213,6 @@ vendor/lib/vendor.qti.esepowermanager@1.0.so
 vendor/lib/vendor.qti.esepowermanager@1.1.so
 
 # FM
-app/FmTest/lib/arm64/fm_helium.so:system_ext/lib64/fm_helium.so
-app/FmTest/lib/arm64/libfm-hci.so:system_ext/lib64/libfm-hci.so
-app/FmTest/lib/arm64/vendor.qti.hardware.fm@1.0.so:system_ext/lib64/vendor.qti.hardware.fm@1.0.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
@@ -1679,13 +1673,6 @@ vendor/lib/libUBWC.so
 vendor/lib/libstreamparser.so
 vendor/lib64/libUBWC.so
 vendor/lib64/libstreamparser.so
-
-# Vibrator
-vendor/bin/hw/vendor.samsung.hardware.vibrator@2.2-service
-vendor/etc/init/vendor.samsung.hardware.vibrator@2.2-service.rc
-vendor/lib/vendor.samsung.hardware.vibrator@2.0.so
-vendor/lib/vendor.samsung.hardware.vibrator@2.1.so
-vendor/lib/vendor.samsung.hardware.vibrator@2.2.so
 
 # Voice
 vendor/lib/vendor.qti.voiceprint@1.0.so

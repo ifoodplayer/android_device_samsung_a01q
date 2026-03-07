@@ -1,1 +1,0 @@
-# This fixes the Audio on the device thanks to @atul2737 - Telegram

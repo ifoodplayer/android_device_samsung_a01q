@@ -44,7 +44,8 @@ PRODUCT_SHIPPING_API_LEVEL := 29
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/samsung
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -129,11 +130,8 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing:32 \
     libeffectsconfig:32 \
     libsndmonitor:32 \
-    libspkrprot:32
-
-# Audio - Custom prebuilt lib
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/custom/libtinycompress.so:$(TARGET_COPY_OUT_VENDOR)/lib/libtinycompress.so
+    libspkrprot:32 \
+    libtinycompress:32
 
 # Audio - Configs
 PRODUCT_COPY_FILES += \
@@ -194,7 +192,7 @@ PRODUCT_PACKAGES += \
     vulkan.pastel
 
 # FM
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     FM2 \
     libqcomfm_jni \
     qcom.fmradio
@@ -223,7 +221,8 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.3.vendor:32
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
 
 # Capability Configstore
 PRODUCT_PACKAGES += \
@@ -231,8 +230,8 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4-service.clearkey \
-    android.hardware.drm@1.4.vendor
+    android.hardware.drm@1.3.vendor \
+    android.hardware.drm-service.clearkey
 
 # fwk-detect
 PRODUCT_PACKAGES += \
@@ -280,7 +279,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor:32 \
     android.hardware.secure_element@1.0.vendor:32 \
     libxml2 \
-    libcutils_shim
+    libcutils_shim.vendor:32
 
 # Telephony
 PRODUCT_PACKAGES += \
